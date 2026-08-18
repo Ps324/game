@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#14131b" />
+  <meta name="description" content="The Outlaw of Attention — a 15-minute retro story game about attention, algorithms, and deliberate technology use." />
+  <title>The Outlaw of Attention — Steal Back Your Time</title>
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0d0c12;
+  --panel: #171622;
+  --ink: #f7f0dc;
+  --muted: #b9b1a4;
+  --line: #302d42;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: radial-gradient(circle at 50% 20%, #1a1825 0%, var(--bg) 55%, #08070b 100%); }
+body { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; color: var(--ink); }
+.shell { width: min(100vw, 1120px); margin: 0 auto; padding: 18px; }
+.topbar, footer { display: flex; justify-content: space-between; gap: 18px; align-items: center; }
+.topbar { margin-bottom: 10px; }
+.topbar strong { display: block; font-size: 16px; letter-spacing: .04em; }
+.topbar span, .controls, footer { color: var(--muted); font-size: 12px; }
+.game-wrap { position: relative; border: 1px solid var(--line); background: #000; box-shadow: 0 18px 55px rgba(0,0,0,.45); overflow: hidden; }
+canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; image-rendering: crisp-edges; background: #0b0b0e; }
+.start-hint { position: absolute; left: 50%; bottom: 10%; transform: translateX(-50%); padding: 8px 12px; border: 1px solid rgba(255,255,255,.25); background: rgba(0,0,0,.7); font-size: 13px; letter-spacing: .06em; pointer-events: none; animation: pulse 1.2s steps(2,end) infinite; }
+footer { margin-top: 9px; }
+@keyframes pulse { 50% { opacity: .45; } }
+@media (max-width: 720px) { .shell { padding: 8px; } .controls, footer span:last-child { display: none; } }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div><strong>The Outlaw of Attention</strong><span>Steal Back Your Time</span></div>
+      <div class="controls">WASD / Arrows · E / Enter interact · M mute</div>
+    </header>
+    <section class="game-wrap" aria-label="Game canvas">
+      <canvas id="game" width="960" height="540"></canvas>
+      <div id="startHint" class="start-hint">Press ENTER to begin</div>
+    </section>
+    <footer><span>Best experienced with sound.</span><span>Built as a single-page static game — no account, tracking, or network requests.</span></footer>
+  </main>
+  <script src="src/game.js"></script>
+</body>
+</html>
